@@ -13,9 +13,14 @@ export default class Login extends Component {
     e.preventDefault();
     const email = this.state.email;
     const password = this.state.password;
-    const response = await api.post('/auth', { email, password });
-    console.log(response);
-    response.status === 200 ? 
+    try {
+      const response = await api.post('/auth', { email, password });
+      if (response.status === 200) {
+        this.props.history.push('/feed');
+      }
+    } catch (ex) {
+      console.log(ex.message);
+    }
   };
 
   handleEmailChange = (e) => {
@@ -31,6 +36,9 @@ export default class Login extends Component {
       <>
       <Nav/>
       <div className="content-wrapper">
+      <div className="title">
+        <h1>Sign in to take your notes</h1>
+      </div>
         <form onSubmit={this.handleSubmit}>
           <div className="input-group">
             <label htmlFor="email-input" className="default-label">Type your e-mail address</label>

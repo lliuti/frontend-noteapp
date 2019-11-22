@@ -10,6 +10,10 @@ form {
   margin-top: 50px;
 }
 
+.title {
+  margin-bottom: 30px;
+}
+
 .content-wrapper .main-form {
   max-width: 600px;
 }
@@ -37,6 +41,8 @@ form {
  
 .content-wrapper .main-form .content-box #content-input {
   min-height: 50px;
+  height: 200px;
+  width: 600px;
   max-width: 600px;
   min-width: 200px;
   background: none;
